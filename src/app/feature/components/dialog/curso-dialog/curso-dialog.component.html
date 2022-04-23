@@ -1,1 +1,19 @@
-<p>curso-dialog works!</p>
+<form [formGroup]=" formEditCursos" (ngSubmit) ="editarCurso()">
+<mat-form-field >
+    <mat-label>nombre</mat-label>
+    <input matInput formControlName="nombre">
+</mat-form-field>
+<mat-form-field>
+    <mat-label>duracion</mat-label>
+    <input matInput  formControlName="duracion">
+</mat-form-field>
+<mat-form-field>
+    <mat-label>descripcion</mat-label>
+    <input matInput  formControlName="descripcion">
+</mat-form-field>
+<mat-form-field>
+    <mat-label>precio</mat-label>
+    <input matInput  formControlName="precio">
+</mat-form-field>
+<button type="submit" mat-raised-button color="primary"> Modificar</button>
+</form>
