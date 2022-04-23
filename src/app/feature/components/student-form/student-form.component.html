@@ -1,0 +1,56 @@
+<form [formGroup]="formulario"  (ngSubmit)="addStudent() ">
+    <mat-card class="formulario">
+      <mat-card-title class="tituloForm" appTitulo
+        >Formulario de Alta
+      </mat-card-title>
+      <mat-card-content>
+        <mat-form-field>
+          <mat-label>Nombre</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Ingrese su nombre"
+            formControlName="nombre"
+          /> </mat-form-field
+        ><br />
+        <mat-form-field>
+          <mat-label>Apellido</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder=" Ingrese suApellido"
+            formControlName="apellido"
+          /> </mat-form-field
+        ><br />
+        <mat-form-field>
+          <mat-label>Edad</mat-label>
+          <input
+            matInput
+            type="number"
+            placeholder=" Ingrese su edad"
+            formControlName="edad"
+          /> </mat-form-field
+        ><br />
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            type="email"
+            placeholder=" Ingrese su email"
+            formControlName="email"
+          /> </mat-form-field
+        ><br />
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          type="submit"
+          mat-raised-button
+          color="primary"
+          [disabled]="formulario.invalid"
+          
+        >
+          Añadir
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>

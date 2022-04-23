@@ -1,0 +1,40 @@
+<mat-toolbar color="primary">
+  <div>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>list</mat-icon>
+    </button>
+  </div>
+  <div class="logo">
+    <a routerLink="home" routerLinkActive="router-link-active" mat-button
+      >Beautifly</a
+    >
+  </div>
+</mat-toolbar>
+<mat-sidenav-container fxFlexFill>
+  <mat-sidenav #sidenav fxLayout="column" mode="side" opened="true">
+    <div fxLayout="column" color="">
+      <a
+        routerLink="cursos"
+        routerLinkActive="router-link-active"
+        mat-button
+        color="primary"
+        >cursos</a
+      >
+      <a
+        routerLink="alumnos"
+        routerLinkActive="router-link-active"
+        mat-button
+        color="primary"
+        >alumnos</a
+      >
+      <a
+        routerLink="inscripcion"
+        routerLinkActive="router-link-active"
+        mat-button
+        color="primary"
+        >inscripciones</a
+      >
+    </div>
+  </mat-sidenav>
+  <router-outlet></router-outlet>
+</mat-sidenav-container>
