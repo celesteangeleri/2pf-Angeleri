@@ -12,3 +12,9 @@
         flex-direction: row;
         margin-left: 90px;
   }
+  .titulo{
+    text-align: center;
+  }
+  .button{
+    margin-left: 25%;
+  }

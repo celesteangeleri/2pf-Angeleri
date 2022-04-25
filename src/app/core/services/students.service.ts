@@ -29,4 +29,8 @@ export class StudentsService {
       })
     )
   }
+  editStudent(student : any): Observable<Student>{
+    return this.http.put<Student>(this.url + `/${student.id}`, student)
+   
+  }
 }

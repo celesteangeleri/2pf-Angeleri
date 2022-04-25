@@ -1,4 +1,8 @@
 <form [formGroup]=" formEditCursos" (ngSubmit) ="editarCurso()">
+<mat-form-field>
+    <mat-label>id</mat-label>
+    <input matInput formControlName="id">
+</mat-form-field>
 <mat-form-field >
     <mat-label>nombre</mat-label>
     <input matInput formControlName="nombre">

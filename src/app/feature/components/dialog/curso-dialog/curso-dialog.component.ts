@@ -17,6 +17,7 @@ export class CursoDialogComponent implements OnInit {
     private cursosService: CursosService
   ) {
     this.formEditCursos = this.fb.group({
+      id: new FormControl(data.id),
       nombre: new FormControl(data.nombre),
       duracion: new FormControl(data.duracion),
       descripcion: new FormControl(data.descripcion),
@@ -26,7 +27,7 @@ export class CursoDialogComponent implements OnInit {
   ngOnInit(): void {}
   editarCurso() {
     let curso: any = {
-      id: this.data.id,
+      id: this.formEditCursos.value.id,
       nombre: this.formEditCursos.value.nombre,
       duracion: this.formEditCursos.value.duracion,
       descripcion: this.formEditCursos.value.descripcion,

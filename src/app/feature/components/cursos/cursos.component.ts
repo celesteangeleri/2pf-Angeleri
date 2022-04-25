@@ -13,13 +13,17 @@ import { CursoDialogComponent } from '../dialog/curso-dialog/curso-dialog.compon
 })
 export class CursosComponent implements OnInit {
   cursos: Cursos[] = [
-    {id : 0, nombre : '', duracion : 0, descripcion : '  ', precio : 0, imagen : ''},
+    {
+      id: 0,
+      nombre: '',
+      duracion: 0,
+      descripcion: '  ',
+      precio: 0,
+      imagen: '',
+    },
   ];
-  
-  constructor(
-    private cursosService: CursosService,
-    public dialog: MatDialog
-    ) {
+
+  constructor(private cursosService: CursosService, public dialog: MatDialog) {
     this.cursosService.obtenercursos$().subscribe((data) => {
       this.cursos = data;
     });
@@ -39,43 +43,38 @@ export class CursosComponent implements OnInit {
       this.cargarCursos();
     });
   }
-  modificarCurso(){
+  modificarCurso() {
     this.cursosService.modificarCurso(this.cursos).subscribe(() => {
       console.log(this.cursos, 'modificado');
-      
+
       this.cargarCursos();
     });
   }
   agregarCurso() {
-    this.abrirAddCursoDialog(this.cursos)
-
+    this.abrirAddCursoDialog(this.cursos);
   }
- 
+
   abrirCursoDialog(curso: any) {
-    const dialogRef = this.dialog.open(CursoDialogComponent,{
+    const dialogRef = this.dialog.open(CursoDialogComponent, {
       width: '250px',
-      data:curso
-    })
+      data: curso,
+    });
     dialogRef.afterClosed().subscribe((data) => {
       console.log(data);
       alert('Curso modificado');
-      this.cargarCursos()
-    })
+      this.cargarCursos();
+    });
   }
 
-
-
-  
   abrirAddCursoDialog(curso: any) {
-    const dialogRef = this.dialog.open(AddCursoDialogComponent,{
+    const dialogRef = this.dialog.open(AddCursoDialogComponent, {
       width: '250px',
-      data:curso
+      data: curso,
     });
     dialogRef.afterClosed().subscribe((data) => {
       console.log(data);
       alert('Curso agregado');
       this.cargarCursos();
-    })
+    });
   }
-
 }

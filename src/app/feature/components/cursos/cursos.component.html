@@ -1,17 +1,33 @@
-<button mat-flat-button color="primary" class="agregarCurso" (click)="abrirAddCursoDialog(cursos)">agregar curso</button>
+<button
+  mat-flat-button
+  color="primary"
+  class="agregarCurso"
+  (click)="abrirAddCursoDialog(cursos)"
+>
+  agregar curso
+</button>
 <div *ngFor="let curso of cursos">
   <mat-card>
-    <mat-card-title>{{ curso.nombre }}</mat-card-title>
-    <mat-card-subtitle>duracion: {{ curso.duracion }} meses</mat-card-subtitle>
-
-    <mat-card-content>descripcion: {{ curso.descripcion }}</mat-card-content>
+    <mat-card-title-group>
+      <mat-card-title class="titulo">{{ curso.nombre }}</mat-card-title>
+      <mat-card-subtitle
+        >duracion: {{ curso.duracion }} meses</mat-card-subtitle
+      >
+    </mat-card-title-group>
+    <mat-card-content>
+      <p>descripcion: {{ curso.descripcion }}</p>
+    </mat-card-content>
+    <mat-card-content>
+      <p>precio: $ {{ curso.precio }}</p>
+    </mat-card-content>
     <mat-card-actions align="end">
-      <button mat-flat-button color="accent" (click)="abrirCursoDialog(curso)">Modificar</button>
+      <button mat-flat-button color="accent" (click)="abrirCursoDialog(curso)">
+        Modificar
+      </button>
       <button mat-flat-button color="warn" (click)="deleteCurso(curso.id)">
         Eliminar
       </button>
     </mat-card-actions>
-    <mat-card-footer>precio: $ {{ curso.precio }}</mat-card-footer>
   </mat-card>
   <br />
 </div>
