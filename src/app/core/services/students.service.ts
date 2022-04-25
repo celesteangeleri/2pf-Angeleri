@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Student } from '../models/student';
+import {tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -18,5 +19,14 @@ export class StudentsService {
 
   deleteStudent(id: number): Observable<Student> {
     return this.http.delete<Student>(this.url + `/${id}`);
+  }
+
+  addStudent(student: Student): Observable<Student> {
+    return this.http.post<Student>(this.url, student)
+    .pipe(
+      tap(()=>{
+        this.students.push(student);
+      })
+    )
   }
 }

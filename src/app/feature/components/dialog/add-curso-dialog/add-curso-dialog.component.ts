@@ -34,7 +34,11 @@ ngOnInit(): void {
 //     });
 // }
 nuevoCurso(){
-  this.cursosService.agregarCurso(this.formAddCurso.value);
+  const curso = this.formAddCurso.value;
+  this.cursosService.agregarCurso(curso).subscribe((curso) => {
+    console.log(curso);
+    alert('Curso agregado');
+  })
   this.dialogRef.close();
 }
 }

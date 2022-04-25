@@ -13,6 +13,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { CursoDialogComponent } from './components/dialog/curso-dialog/curso-dialog.component';
+import { AddCursoDialogComponent } from './components/dialog/add-curso-dialog/add-curso-dialog.component';
 @NgModule({
   declarations: [
     StudentAbmComponent,
@@ -21,6 +22,7 @@ import { CursoDialogComponent } from './components/dialog/curso-dialog/curso-dia
     EditDialogComponent,
     HomeComponent,
     CursoDialogComponent,
+    AddCursoDialogComponent,
   ],
   imports: [
     CommonModule,

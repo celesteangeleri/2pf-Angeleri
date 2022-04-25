@@ -1,56 +1,71 @@
-<form [formGroup]="formulario"  (ngSubmit)="addStudent() ">
-    <mat-card class="formulario">
-      <mat-card-title class="tituloForm" appTitulo
-        >Formulario de Alta
-      </mat-card-title>
-      <mat-card-content>
-        <mat-form-field>
-          <mat-label>Nombre</mat-label>
-          <input
-            matInput
-            type="text"
-            placeholder="Ingrese su nombre"
-            formControlName="nombre"
-          /> </mat-form-field
-        ><br />
-        <mat-form-field>
-          <mat-label>Apellido</mat-label>
-          <input
-            matInput
-            type="text"
-            placeholder=" Ingrese suApellido"
-            formControlName="apellido"
-          /> </mat-form-field
-        ><br />
-        <mat-form-field>
-          <mat-label>Edad</mat-label>
-          <input
-            matInput
-            type="number"
-            placeholder=" Ingrese su edad"
-            formControlName="edad"
-          /> </mat-form-field
-        ><br />
-        <mat-form-field>
-          <mat-label>Email</mat-label>
-          <input
-            matInput
-            type="email"
-            placeholder=" Ingrese su email"
-            formControlName="email"
-          /> </mat-form-field
-        ><br />
-      </mat-card-content>
-      <mat-card-actions>
-        <button
-          type="submit"
-          mat-raised-button
-          color="primary"
-          [disabled]="formulario.invalid"
-          
-        >
-          Añadir
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </form>
+<form [formGroup]="formulario" (ngSubmit)="addStudent()">
+  <mat-card class="formulario">
+    <mat-card-title class="tituloForm" appTitulo
+      >Formulario de Alta
+    </mat-card-title>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Ingrese su nombre"
+          formControlName="nombre"
+          required
+        /> 
+        <mat-error>Por favor ingrese su Nombre</mat-error></mat-form-field
+      ><br />
+      <mat-form-field>
+        <mat-label>Apellido</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder=" Ingrese suApellido"
+          formControlName="apellido"
+          required
+        />
+        <mat-error>Por favor ingrese su Apellido</mat-error> </mat-form-field
+      ><br />
+      <mat-form-field>
+        <mat-label>Edad</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder=" Ingrese su edad"
+          formControlName="edad"
+        /> </mat-form-field
+      ><br />
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="email"
+          placeholder=" Ingrese su email"
+          formControlName="email"
+          required
+        />
+        <mat-error>Por favor ingrese su Email</mat-error>
+        </mat-form-field
+      ><br />
+      <mat-form-field>
+        <mat-label>Elije tu curso</mat-label>
+        <mat-select [formControl]="cursoControl">
+          <mat-option value="pestañas">Pestañas</mat-option>
+          <mat-option value="maquillaje">maquillaje</mat-option>
+          <mat-option value="pedicura">pedicura</mat-option>
+          <mat-option value="manicura">manicura</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        [disabled]="formulario.invalid"
+      >
+        Añadir
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>
