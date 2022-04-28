@@ -4,9 +4,13 @@
         <input matInput formControlName="nombre">
     </mat-form-field>
     <mat-form-field>
-        <mat-label>duracion</mat-label>
-        <input matInput  formControlName="duracion">
-    </mat-form-field>
+        <mat-label>fecha inicio</mat-label>
+          <input type="date" matInput formControlName="fechaInicio">
+      </mat-form-field>
+      <mat-form-field>
+          <mat-label>fecha fin</mat-label>
+            <input type="date" matInput formControlName="fechaFin">
+        </mat-form-field>
     <mat-form-field>
         <mat-label>descripcion</mat-label>
         <textarea matInput  formControlName="descripcion">
@@ -15,6 +19,14 @@
     <mat-form-field>
         <mat-label>precio</mat-label>
         <input matInput  formControlName="precio">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>profesor</mat-label>
+        <mat-select formControlName="profesor">
+            <mat-option *ngFor="let profesor of profesores" [value]="profesor">
+                {{profesor.nombre}} {{profesor.apellido}}
+            </mat-option>
+        </mat-select>
     </mat-form-field>
     <button type="submit" mat-raised-button color="primary"> Agregar</button>
     </form>

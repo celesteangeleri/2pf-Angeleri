@@ -19,7 +19,8 @@ export class CursoDialogComponent implements OnInit {
     this.formEditCursos = this.fb.group({
       id: new FormControl(data.id),
       nombre: new FormControl(data.nombre),
-      duracion: new FormControl(data.duracion),
+     fechaInicio: new FormControl(data.fechaInicio),
+     fechaFin: new FormControl(data.fechaFin),
       descripcion: new FormControl(data.descripcion),
       precio: new FormControl(data.precio),
     });
@@ -29,7 +30,8 @@ export class CursoDialogComponent implements OnInit {
     let curso: any = {
       id: this.formEditCursos.value.id,
       nombre: this.formEditCursos.value.nombre,
-      duracion: this.formEditCursos.value.duracion,
+      fechaInicio: this.formEditCursos.value.fechaInicio,
+      fechaFin: this.formEditCursos.value.fechaFin,
       descripcion: this.formEditCursos.value.descripcion,
       precio: this.formEditCursos.value.precio,
     };

@@ -11,7 +11,7 @@
     <mat-card-title-group>
       <mat-card-title class="titulo">{{ curso.nombre }}</mat-card-title>
       <mat-card-subtitle
-        >duracion: {{ curso.duracion }} meses</mat-card-subtitle
+        >duracion: desde {{ curso.fechaInicio | date: 'dd/MM/YYYY'  }} , hasta {{curso.fechaFin | date: 'dd/MM/YYYY' }}</mat-card-subtitle
       >
     </mat-card-title-group>
     <mat-card-content>
@@ -19,6 +19,10 @@
     </mat-card-content>
     <mat-card-content>
       <p>precio: $ {{ curso.precio }}</p>
+    </mat-card-content>
+    <mat-card-content>
+      <p>profesor: {{curso.profesor.nombre}} {{curso.profesor.apellido}}</p>
+      <p>estudiantes: {{curso.students?.length}}</p> 
     </mat-card-content>
     <mat-card-actions align="end">
       <button mat-flat-button color="accent" (click)="abrirCursoDialog(curso)">

@@ -11,7 +11,7 @@ export interface DialogData {
   nombre: string;
   apellido: string;
   email: string;
-  curso: string
+  curso: string;
 }
 /**
  * @title Basic use of `<table mat-table>`
@@ -32,7 +32,6 @@ export class StudentAbmComponent implements OnInit {
     'curso',
     'delete',
     'edit',
-
   ];
   students: Student[] = [];
   @ViewChild(MatTable) table!: MatTable<any>;
@@ -46,6 +45,8 @@ export class StudentAbmComponent implements OnInit {
     public dialog: MatDialog
   ) {
     this.studentService.getStudents$().subscribe((data) => {
+      console.log(data);
+      
       this.students = data;
     });
   }
@@ -71,10 +72,9 @@ export class StudentAbmComponent implements OnInit {
 
   editStudent() {
     this.studentService.editStudent(this.students).subscribe(() => {
-    this.loadStudents();
-    this.refreshTable()
+      this.loadStudents();
+      this.refreshTable();
     });
-   
   }
 
   openDialogEdit(student: any) {
@@ -85,9 +85,8 @@ export class StudentAbmComponent implements OnInit {
     dialogRef.afterClosed().subscribe((data) => {
       console.log(data);
       alert('Curso modificado');
-     this.loadStudents();
-    this.refreshTable();  
+      this.loadStudents();
+      this.refreshTable();
     });
-   
   }
 }

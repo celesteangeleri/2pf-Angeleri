@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Cursos } from 'src/app/core/models/cursos';
+import { Curso } from 'src/app/core/models/cursos';
 import { CursosService } from 'src/app/core/services/cursos.service';
 import { AddCursoDialogComponent } from '../dialog/add-curso-dialog/add-curso-dialog.component';
 import { CursoDialogComponent } from '../dialog/curso-dialog/curso-dialog.component';
@@ -12,16 +12,7 @@ import { CursoDialogComponent } from '../dialog/curso-dialog/curso-dialog.compon
   styleUrls: ['./cursos.component.css'],
 })
 export class CursosComponent implements OnInit {
-  cursos: Cursos[] = [
-    {
-      id: 0,
-      nombre: '',
-      duracion: 0,
-      descripcion: '  ',
-      precio: 0,
-      imagen: '',
-    },
-  ];
+  cursos: Curso[] = [];
 
   constructor(private cursosService: CursosService, public dialog: MatDialog) {
     this.cursosService.obtenercursos$().subscribe((data) => {
@@ -34,12 +25,13 @@ export class CursosComponent implements OnInit {
   }
 
   cargarCursos() {
-    this.cursosService.obtenercursos$().subscribe((data: Cursos[]) => {
+    this.cursosService.obtenercursos$().subscribe((data: Curso[]) => {
       this.cursos = data;
     });
   }
   deleteCurso(id: number) {
     this.cursosService.eliminarCurso(id).subscribe(() => {
+      alert('Curso eliminado');
       this.cargarCursos();
     });
   }
@@ -52,11 +44,12 @@ export class CursosComponent implements OnInit {
   }
   agregarCurso() {
     this.abrirAddCursoDialog(this.cursos);
+    this.cargarCursos()
   }
 
   abrirCursoDialog(curso: any) {
     const dialogRef = this.dialog.open(CursoDialogComponent, {
-      width: '250px',
+      width: '300px',
       data: curso,
     });
     dialogRef.afterClosed().subscribe((data) => {
@@ -73,7 +66,6 @@ export class CursosComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((data) => {
       console.log(data);
-      alert('Curso agregado');
       this.cargarCursos();
     });
   }
