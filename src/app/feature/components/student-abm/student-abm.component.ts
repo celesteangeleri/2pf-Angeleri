@@ -44,9 +44,7 @@ export class StudentAbmComponent implements OnInit {
     private studentService: StudentsService,
     public dialog: MatDialog
   ) {
-    this.studentService.getStudents$().subscribe((data) => {
-      console.log(data);
-      
+    this.studentService.getStudents$().subscribe((data) => {  
       this.students = data;
     });
   }
@@ -82,8 +80,8 @@ export class StudentAbmComponent implements OnInit {
       width: '250px',
       data: student,
     });
-    dialogRef.afterClosed().subscribe((data) => {
-      console.log(data);
+    dialogRef.afterClosed().subscribe(() => {
+     
       alert('Curso modificado');
       this.loadStudents();
       this.refreshTable();

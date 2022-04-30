@@ -37,8 +37,7 @@ export class CursosComponent implements OnInit {
   }
   modificarCurso() {
     this.cursosService.modificarCurso(this.cursos).subscribe(() => {
-      console.log(this.cursos, 'modificado');
-
+      alert('Curso modificado');
       this.cargarCursos();
     });
   }
@@ -52,8 +51,7 @@ export class CursosComponent implements OnInit {
       width: '300px',
       data: curso,
     });
-    dialogRef.afterClosed().subscribe((data) => {
-      console.log(data);
+    dialogRef.afterClosed().subscribe(() => {
       alert('Curso modificado');
       this.cargarCursos();
     });
@@ -64,8 +62,7 @@ export class CursosComponent implements OnInit {
       width: '250px',
       data: curso,
     });
-    dialogRef.afterClosed().subscribe((data) => {
-      console.log(data);
+    dialogRef.afterClosed().subscribe(() => {
       this.cargarCursos();
     });
   }

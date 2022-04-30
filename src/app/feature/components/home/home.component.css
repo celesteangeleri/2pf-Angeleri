@@ -1,8 +1,14 @@
-.example-card {
-    max-width: 150px;
+ .example-card {
+    max-width: 220px;
     margin: 10px;
   }
+   .tituloHome{
   
+    font-size: 25px;
+    color:black;
+    text-align: center;
+    margin-top: 1rem;
+   }
   .example-header-image {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
@@ -10,7 +16,8 @@
   .container {
       display: flex;
         flex-direction: row;
-        margin-left: 90px;
+        margin-left: 15%;
+        margin-top: 20px;
   }
   .titulo{
     text-align: center;

@@ -1,0 +1,29 @@
+<div *ngIf="sesionActiva" class="toolbar">
+  <div>
+    <button
+      [routerLink]="'home/cursos'"
+      [routerLinkActive]="'router-link-active'"
+      mat-button
+    >
+      Cursos
+    </button>
+  </div>
+  <div>
+    <button
+      [routerLink]="'home/alumnos'"
+      [routerLinkActive]="'router-link-active'"
+      mat-button
+    >
+      Alumnos
+    </button>
+  </div>
+  <div>
+    <button
+      [routerLink]="'home/inscripciones'"
+      [routerLinkActive]="'router-link-active'"
+      mat-button
+    >
+      Inscripciones
+    </button>
+  </div>
+</div>

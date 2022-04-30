@@ -1,0 +1,42 @@
+<div class="login">
+  <form action="" [formGroup]="formulario" (ngSubmit)="login()">
+    <mat-card class="formLogin">
+      <mat-card-title>Login</mat-card-title>
+      <mat-card-content>
+        <mat-form-field>
+          <mat-label>
+            <mat-icon>face</mat-icon>
+            usuario
+          </mat-label>
+          <input matInput type="email" formControlName="email" required />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>
+            <mat-icon>vpn_key</mat-icon>
+            contraseña</mat-label
+          >
+          <input
+            matInput
+            type="password"
+            formControlName="password"
+            required
+            placeholder=" Ingrese su contraseña"
+          />
+        </mat-form-field>
+        <mat-card-actions>
+          <button type="submit" mat-raised-button color="primary">
+            ingresar
+          </button>
+        </mat-card-actions>
+        <mat-card-actions>
+          <p>¿no tienes cuenta aun?</p>
+          <a [routerLink]="'registro'" [routerLinkActive]="'router-link-active'">registrate</a>
+        </mat-card-actions>
+      </mat-card-content>
+    </mat-card>
+  </form>
+  <p>cele@gmail.com</p>
+  <p>cele</p>
+  <p>email admin :</p>
+  <p>pass admin:</p>
+</div>

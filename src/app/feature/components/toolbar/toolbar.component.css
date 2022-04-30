@@ -1,0 +1,16 @@
+.toolbar{
+position: absolute;
+margin-left: 0.5rem;
+margin-top: 10px;
+height: 100%;
+color: mediumpurple;
+border: 2px outset rgba(28,110,164,0.05);
+border-radius: 4px;
+-webkit-box-shadow: 3px 1px 15px 5px rgba(0,0,0,0.15); 
+box-shadow: 3px 1px 15px 5px rgba(0,0,0,0.15);
+}
+button{
+  margin-top: 15px;
+  font-family: 'Radio Canada', sans-serif;
+  font-size: 1rem;
+}

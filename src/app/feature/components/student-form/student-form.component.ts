@@ -100,10 +100,9 @@ export class StudentFormComponent implements OnInit {
   ngOnInit(): void {}
   addStudent() {
     const student = this.formulario.value;
-    console.log(this.formulario.value);
-    this.studentService.addStudent(student).subscribe((student) => {
-      console.log(student);
+    this.studentService.addStudent(student).subscribe(() => { 
       alert('Student added');
+      this.formulario.reset();
     });
   }
 }
