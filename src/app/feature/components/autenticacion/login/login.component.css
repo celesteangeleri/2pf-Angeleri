@@ -1,5 +1,10 @@
-.login{
-    width: 33%;
-    margin-left: 33%;
-    margin-top: 5%;
+.formLogin{
+    width: 20%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f6ddfa58;
+    margin-left: 40%;
 }

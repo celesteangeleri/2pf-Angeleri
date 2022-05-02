@@ -9,11 +9,18 @@ import { CoreModule } from '@angular/flex-layout';
 import { MaterialModule } from '../shared/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
-import { AppRoutingModule } from '../app-routing.module';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { CursoDialogComponent } from './components/dialog/curso-dialog/curso-dialog.component';
 import { AddCursoDialogComponent } from './components/dialog/add-curso-dialog/add-curso-dialog.component';
+import { LoginComponent } from './components/autenticacion/login/login.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { AutenticacionModule } from './components/autenticacion/autenticacion.module';
+
+
+
+
+
 @NgModule({
   declarations: [
     StudentAbmComponent,
@@ -23,6 +30,8 @@ import { AddCursoDialogComponent } from './components/dialog/add-curso-dialog/ad
     HomeComponent,
     CursoDialogComponent,
     AddCursoDialogComponent,
+    ToolbarComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -33,6 +42,7 @@ import { AddCursoDialogComponent } from './components/dialog/add-curso-dialog/ad
     ReactiveFormsModule,
     RouterModule,
     HttpClientModule,
+    AutenticacionModule
 
   ],
   exports:[
@@ -40,6 +50,10 @@ import { AddCursoDialogComponent } from './components/dialog/add-curso-dialog/ad
     CursosComponent,
     StudentAbmComponent,
     StudentFormComponent,
+    HomeComponent,
+    LoginComponent,
+    ToolbarComponent,
+    AutenticacionModule
   ]
   // exports: [FlexLayoutModule, MaterialModule]
 })

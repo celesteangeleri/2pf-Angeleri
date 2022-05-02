@@ -8,7 +8,7 @@ import {tap} from 'rxjs/operators';
   providedIn: 'root',
 })
 export class StudentsService {
-  public url = 'https://625eedb1873d6798e2b063f8.mockapi.io/students';
+  public url = 'https://625eedb1873d6798e2b063f8.mockapi.io/student';
   students: Student[] = [];
 
   constructor(private http: HttpClient) {}
@@ -34,3 +34,4 @@ export class StudentsService {
    
   }
 }
+

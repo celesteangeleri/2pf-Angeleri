@@ -10,6 +10,7 @@
           </mat-label>
           <input matInput type="email" formControlName="email" required />
         </mat-form-field>
+        <br />
         <mat-form-field>
           <mat-label>
             <mat-icon>vpn_key</mat-icon>
@@ -23,20 +24,27 @@
             placeholder=" Ingrese su contraseña"
           />
         </mat-form-field>
+        <br />
         <mat-card-actions>
-          <button type="submit" mat-raised-button color="primary">
+          <button [disabled]="formulario.invalid" type="submit" mat-raised-button color="primary">
             ingresar
           </button>
         </mat-card-actions>
         <mat-card-actions>
           <p>¿no tienes cuenta aun?</p>
-          <a [routerLink]="'registro'" [routerLinkActive]="'router-link-active'">registrate</a>
+          <a
+            [routerLink]="'/registro'"
+            [routerLinkActive]="'router-link-active'"
+            >registrate</a
+          >
         </mat-card-actions>
       </mat-card-content>
     </mat-card>
   </form>
-  <p>cele@gmail.com</p>
-  <p>cele</p>
-  <p>email admin :</p>
-  <p>pass admin:</p>
 </div>
+<p>user:</p>
+<p>cele@gmail.com</p>
+<p>cele</p>
+<p>admin :</p>
+<p>admin@gmail.com</p>
+<p>admin</p>
