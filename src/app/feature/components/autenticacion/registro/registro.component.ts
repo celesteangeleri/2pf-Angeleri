@@ -21,6 +21,7 @@ formulario : FormGroup
       apellido : new FormControl ('',[ Validators.required]),
       email : new FormControl ('',[ Validators.required]),
       password : new FormControl ('',[ Validators.required]),
+      
     })
   }
 

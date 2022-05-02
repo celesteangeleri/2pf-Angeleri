@@ -1,4 +1,5 @@
 <button
+*ngIf="sesionActiva.activa && sesionActiva.usuario.rol == 'admin'"
   mat-flat-button
   color="primary"
   class="agregarCurso"
@@ -25,10 +26,14 @@
       <p>estudiantes: {{curso.students}}</p> 
     </mat-card-content>
     <mat-card-actions align="end">
-      <button mat-flat-button color="accent" (click)="abrirCursoDialog(curso)">
+      <button 
+      *ngIf="sesionActiva.activa && sesionActiva.usuario.rol == 'admin'"
+      mat-flat-button color="accent" (click)="abrirCursoDialog(curso)">
         Modificar
       </button>
-      <button mat-flat-button color="warn" (click)="deleteCurso(curso.id)">
+      <button 
+      *ngIf="sesionActiva.activa && sesionActiva.usuario.rol == 'admin'"
+      mat-flat-button color="warn" (click)="deleteCurso(curso.id)">
         Eliminar
       </button>
     </mat-card-actions>

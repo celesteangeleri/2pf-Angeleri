@@ -13,10 +13,11 @@ import { CursoDialogComponent } from '../dialog/curso-dialog/curso-dialog.compon
 })
 export class CursosComponent implements OnInit {
   cursos: Curso[] = [];
-
+  sesionActiva!: any;
   constructor(private cursosService: CursosService, public dialog: MatDialog) {
     this.cursosService.obtenercursos$().subscribe((data) => {
       this.cursos = data;
+      this.sesionActiva = JSON.parse(localStorage.getItem('sesion') || '{}');
     });
   }
 

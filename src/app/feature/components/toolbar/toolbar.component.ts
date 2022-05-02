@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
 
-  sesionActiva!: boolean;
+  sesionActiva!: any;
   constructor() {
-    this.sesionActiva = localStorage.getItem('sesion') ? true : false;
+    this.sesionActiva = JSON.parse(localStorage.getItem('sesion') || '{}');
   }
 
   ngOnInit(): void {}

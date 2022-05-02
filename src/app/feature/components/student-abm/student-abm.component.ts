@@ -23,6 +23,7 @@ export interface DialogData {
   styleUrls: ['./student-abm.component.css'],
 })
 export class StudentAbmComponent implements OnInit {
+  sesionActiva!: any;
   dataSource = this.getStudents$();
   displayColumns: string[] = [
     'id',
@@ -47,6 +48,7 @@ export class StudentAbmComponent implements OnInit {
     this.studentService.getStudents$().subscribe((data) => {  
       this.students = data;
     });
+    this.sesionActiva = JSON.parse(localStorage.getItem('sesion') || '{}');
   }
 
   ngOnInit(): void {
