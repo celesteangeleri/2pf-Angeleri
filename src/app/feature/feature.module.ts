@@ -16,6 +16,7 @@ import { AddCursoDialogComponent } from './components/dialog/add-curso-dialog/ad
 import { LoginComponent } from './components/autenticacion/login/login.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { AutenticacionModule } from './components/autenticacion/autenticacion.module';
+import { CursosRoutingModule } from './components/cursos/cursos-routing.module';
 
 
 
@@ -53,7 +54,8 @@ import { AutenticacionModule } from './components/autenticacion/autenticacion.mo
     HomeComponent,
     LoginComponent,
     ToolbarComponent,
-    AutenticacionModule
+    AutenticacionModule,
+    CursosRoutingModule
   ]
   // exports: [FlexLayoutModule, MaterialModule]
 })

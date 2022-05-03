@@ -9,6 +9,9 @@ import { StudentAbmRoutingModule } from './student-abm-routing.module';
   imports: [
     CommonModule,
     StudentAbmRoutingModule
+  ],
+  exports:[
+    StudentAbmRoutingModule
   ]
 })
 export class StudentAbmModule { }

@@ -11,27 +11,7 @@ const routes: Routes = [
       import('./feature/components/home/home.module').then((m) => m.HomeModule),
       canActivate: [AuthGuard]
   },
-  {
-    path: 'cursos',
-    loadChildren: () =>
-      import('./feature/components/cursos/cursos.module').then(
-        (m) => m.CursosModule
-      ),
-  },
-  {
-    path: 'alumnos',
-    loadChildren: () =>
-      import('./feature/components/student-abm/student-abm.module').then(
-        (m) => m.StudentAbmModule
-      ),
-  },
-  {
-    path: 'inscripciones',
-    loadChildren: () =>
-      import('./feature/components/student-form/student-form.module').then(
-        (m) => m.StudentFormModule
-      ),
-  },
+
   {
     path: 'autenticacion',
     loadChildren: () =>

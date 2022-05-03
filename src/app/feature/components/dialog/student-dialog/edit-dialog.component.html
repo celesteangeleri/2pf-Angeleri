@@ -1,24 +1,27 @@
-<form [formGroup]="editStudentForm " (ngSubmit) ="editStudentDialog()">
-    <mat-form-field >
-        <mat-label>nombre</mat-label>
-        <input matInput formControlName="nombre">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>apellido</mat-label>
-        <input matInput  formControlName="apellido">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>edad</mat-label>
-        <input matInput  formControlName="edad">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>email</mat-label>
-        <input matInput  formControlName="email">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>curso</mat-label>
-        <input matInput  formControlName="curso">
-    </mat-form-field>
-    <button type="submit" mat-raised-button color="primary"> Modificar</button>
-    </form>
-    
+<form [formGroup]="editStudentForm" (ngSubmit)="editStudentDialog()">
+  <mat-form-field>
+    <mat-label>nombre</mat-label>
+    <input matInput formControlName="nombre" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>apellido</mat-label>
+    <input matInput formControlName="apellido" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>edad</mat-label>
+    <input matInput formControlName="edad" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>email</mat-label>
+    <input matInput formControlName="email" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>curso</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let curso of cursos" [value]="curso">
+          {{ curso.nombre}}       
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button type="submit" mat-raised-button color="primary">Modificar</button>
+</form>

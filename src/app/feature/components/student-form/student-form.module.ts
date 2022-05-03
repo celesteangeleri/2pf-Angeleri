@@ -9,6 +9,9 @@ import { StudentFormRoutingModule } from './student-form-routing.module';
   imports: [
     CommonModule,
     StudentFormRoutingModule
+  ],
+  exports:[
+    StudentFormRoutingModule
   ]
 })
 export class StudentFormModule { }
