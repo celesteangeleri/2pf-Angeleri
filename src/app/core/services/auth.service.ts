@@ -23,6 +23,8 @@ export class AuthService {
       })
     );
   }
+
+
   establecerSesion(sesionActiva: boolean, usuario: Usuario) {
     this.sesion = {
        activa: sesionActiva,

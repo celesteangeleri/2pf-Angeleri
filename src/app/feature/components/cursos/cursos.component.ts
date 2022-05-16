@@ -48,9 +48,12 @@ export class CursosComponent implements OnInit {
   }
 
   abrirCursoDialog(curso: any) {
+    //esto es para que no me tire error al llamar al curso
+    const cursoClone = Object.assign({}, curso);
     const dialogRef = this.dialog.open(CursoDialogComponent, {
       width: '300px',
-      data: curso,
+      //esto tmb lo cambie
+      data: cursoClone,
     });
     dialogRef.afterClosed().subscribe(() => {
       alert('Curso modificado');

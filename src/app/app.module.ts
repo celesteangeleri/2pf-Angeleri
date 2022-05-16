@@ -12,9 +12,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 import { FeatureModule } from './feature/feature.module';
 import { CursosRoutingModule } from './feature/components/cursos/cursos-routing.module';
-import { StudentAbmModule } from './feature/components/student-abm/student-abm.module';
 import { StudentFormRoutingModule } from './feature/components/student-form/student-form-routing.module';
 import { StudentAbmRoutingModule } from './feature/components/student-abm/student-abm-routing.module';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { ROOT_REDUCER } from './state/app.state';
 
 @NgModule({
   declarations: [
@@ -24,14 +27,18 @@ import { StudentAbmRoutingModule } from './feature/components/student-abm/studen
     BrowserModule,
     AppRoutingModule,
     CursosRoutingModule,
-   StudentAbmRoutingModule,
-   StudentFormRoutingModule,
+    StudentAbmRoutingModule,
+    StudentFormRoutingModule,
     CoreModule,
     FeatureModule,
     SharedModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    // StoreModule.forRoot({}, {}),
+    StoreModule.forRoot(ROOT_REDUCER),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production, name: 'prueba login' }),
+    
   ],
   exports:[RouterModule],
   providers: [],
