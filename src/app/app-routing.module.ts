@@ -12,14 +12,14 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'alumnos',
+    path: 'autenticacion/alumnos',
     loadChildren: () =>
       import('./feature/components/student-abm/student-abm.module').then(
         (m) => m.StudentAbmModule
       ),canActivate: [AuthGuard],
   },
   {
-    path:'cursos',
+    path:'autenticacion/cursos',
     loadChildren: () =>
       import('./feature/components/cursos/cursos.module').then(
         (m) => m.CursosModule

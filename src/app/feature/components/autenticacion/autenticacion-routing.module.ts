@@ -25,14 +25,12 @@ const routes: Routes = [
         component: CursosComponent,
       },
       {
-        path: 'cursos/:id',
-        component: CursosComponent,
-      },
-      {
         path: 'inicio',
         component: HomeComponent,
       },
-      { path: 'home', component: HomeComponent },
+      { path: 'home',
+       component: HomeComponent 
+      },
       {
         path: 'inscripcione',
         component: StudentFormComponent,

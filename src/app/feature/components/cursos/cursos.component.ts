@@ -1,8 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { Curso } from 'src/app/core/models/cursos';
 import { CursosService } from 'src/app/core/services/cursos.service';
+import { cargarCursosRedux, cursosCargadosRedux } from 'src/app/state/actions/curso.action';
+import { AppState } from 'src/app/state/app.state';
 import { AddCursoDialogComponent } from '../dialog/add-curso-dialog/add-curso-dialog.component';
 import { CursoDialogComponent } from '../dialog/curso-dialog/curso-dialog.component';
 
@@ -14,7 +18,12 @@ import { CursoDialogComponent } from '../dialog/curso-dialog/curso-dialog.compon
 export class CursosComponent implements OnInit {
   cursos: Curso[] = [];
   sesionActiva!: any;
-  constructor(private cursosService: CursosService, public dialog: MatDialog) {
+  cargando$! : Observable<boolean>
+  constructor(
+    private cursosService: CursosService, 
+    public dialog: MatDialog,
+    private store : Store<AppState>
+    ) {
     this.cursosService.obtenercursos$().subscribe((data) => {
       this.cursos = data;
       this.sesionActiva = JSON.parse(localStorage.getItem('sesion') || '{}');
@@ -22,7 +31,11 @@ export class CursosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.cargarCursos();
+    this.store.dispatch(cargarCursosRedux())
+    this.cursosService.obtenercursos$().subscribe((cursos)=> {
+      this.store.dispatch(cursosCargadosRedux({cursos : cursos}))
+    });
+    this.cargando$ = this.store.select(state => state.cursos.cargando)
   }
 
   cargarCursos() {

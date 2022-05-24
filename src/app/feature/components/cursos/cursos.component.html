@@ -25,7 +25,7 @@
     </mat-card-content>
     <mat-card-content>
       <p>profesor: {{curso.profesor.nombre}} {{curso.profesor.apellido}}</p>
-      <p>estudiantes: {{curso.students}}</p> 
+      <p>estudiantes: {{curso.students.length}}</p> 
     </mat-card-content>
     <mat-card-actions align="end">
       <button 
@@ -38,6 +38,10 @@
       mat-flat-button color="warn" (click)="deleteCurso(curso.id)">
         Eliminar
       </button>
+      <!-- <button 
+      mat-flat-button color="accent" (click)="deleteCurso(curso.id)">
+        desinscriberme
+      </button> -->
     </mat-card-actions>
   </mat-card>
   <br />

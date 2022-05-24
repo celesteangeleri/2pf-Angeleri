@@ -13,12 +13,6 @@ const routes: Routes = [
       {
         path: 'cursos',
         component: CursosComponent,
-        canActivateChild: [AuthGuard],
-      },
-      {
-        path: 'cursos/:id',
-        component: CursosComponent,
-        canActivateChild: [AuthGuard],
       },
       {
         path: 'inicio',

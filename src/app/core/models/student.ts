@@ -6,5 +6,5 @@ export interface Student{
     apellido:string,
     edad:number,
     email:string,
-    curso: Curso   
+    // curso: Curso   
 }

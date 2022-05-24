@@ -1,17 +1,17 @@
 <div *ngIf="sesionActiva" class="toolbar">
   <div>
     <button
-      [routerLink]="'/cursos'"
-      [routerLinkActive]="'router-link-active'"
+      routerLink="cursos"
+      routerLinkActive="router-link-active"
       mat-button
     >
       Cursos
     </button>
   </div>
-  <div>
-    <button
-      [routerLink]="'/alumnos'"
-      [routerLinkActive]="'router-link-active'"
+  <div >
+    <button *ngIf="sesionActiva.activa && sesionActiva.usuario.rol == 'admin'"
+      routerLink="alumnos"
+      routerLinkActive="router-link-active"
       mat-button
     >
       Alumnos
@@ -19,11 +19,12 @@
   </div>
   <div>
     <button
-      [routerLink]="'/inscripciones'"
-      [routerLinkActive]="'router-link-active'"
+      routerLink="inscripciones"
+      routerLinkActive="router-link-active"
       mat-button
     >
       Inscripciones
     </button>
   </div>
+  <router-outlet></router-outlet>
 </div>
