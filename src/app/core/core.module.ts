@@ -4,12 +4,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MaterialModule } from '../shared/material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
+import { ConversorDatosPipe } from './pipes/conversor-datos.pipe';
 
 
 
 @NgModule({
   declarations: [
-    NavbarComponent,  
+    NavbarComponent,
+    ConversorDatosPipe,  
 
   ],
   imports: [
@@ -17,13 +19,14 @@ import { RouterModule } from '@angular/router';
     MaterialModule, 
     FlexLayoutModule,
     RouterModule,
+    
   ],
   exports: [
     MaterialModule,
     NavbarComponent,
     FlexLayoutModule,
     RouterModule,
-    
+    // ConversorDatosPipe
   ]
 })
 export class CoreModule { }

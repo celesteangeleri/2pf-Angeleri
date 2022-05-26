@@ -1,4 +1,12 @@
 <app-toolbar></app-toolbar>
+<ngx-spinner
+  bdColor="rgb(234,173,238)"
+  size="large"
+  color="#fefefe"
+  type="square-jelly-box"
+  [fullScreen]="true"
+  ><p style="color: white">cargando...</p></ngx-spinner
+>
 <h1 class="table-content" appTitulo>Tabla de Alumnos:</h1>
 <div class="tabla">
   <table mat-table [dataSource]="students">
@@ -35,12 +43,12 @@
         <td mat-cell *matCellDef="let student">{{ student.curso.nombre }}</td>
       </ng-container>
     </div>
-    <div  >
-      <ng-container matColumnDef="delete"  >
-        <th mat-header-cell *matHeaderCellDef ></th>
-        <td mat-cell *matCellDef="let student" >
+    <div>
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let student">
           <button
-          *ngIf="sesionActiva.activa && sesionActiva.usuario.rol == 'admin'"
+            *ngIf="sesionActiva.activa && sesionActiva.usuario.rol == 'admin'"
             mat-mini-fab
             color="primary"
             type="button"
@@ -51,14 +59,28 @@
         </td></ng-container
       >
     </div>
-    <div >
-      <ng-container matColumnDef="edit" >
-        <th 
-        
-        mat-header-cell *matHeaderCellDef></th>
+    <div>
+      <ng-container matColumnDef="desinscribir">
+        <th mat-header-cell *matHeaderCellDef>desinscribirme</th>
         <td mat-cell *matCellDef="let student">
           <button
-          *ngIf="sesionActiva.activa && sesionActiva.usuario.rol == 'admin'"
+            *ngIf="sesionActiva.activa && sesionActiva.usuario.nombre == student.nombre"
+            mat-mini-fab
+            color="primary"
+            type="button"
+            (click)="deleteStudent(student.id)"
+          >
+            <mat-icon>delete_forever</mat-icon>
+          </button>
+        </td></ng-container
+      >
+    </div>
+    <div>
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let student">
+          <button
+            *ngIf="sesionActiva.activa && sesionActiva.usuario.rol == 'admin'"
             mat-mini-fab
             color="primary"
             type="button"
@@ -67,7 +89,6 @@
             <mat-icon>edit</mat-icon>
           </button>
         </td>
-       
       </ng-container>
     </div>
 

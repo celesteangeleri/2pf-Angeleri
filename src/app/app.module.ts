@@ -19,9 +19,11 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { ROOT_REDUCERS } from './state/app.state';
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,6 @@ import { ROOT_REDUCERS } from './state/app.state';
     // StoreModule.forRoot({}, {}),
     StoreModule.forRoot(ROOT_REDUCERS),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production, name: 'prueba login' }),
-    
   ],
   exports:[RouterModule],
   providers: [],

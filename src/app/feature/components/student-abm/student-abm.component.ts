@@ -5,7 +5,8 @@ import { MatTable } from '@angular/material/table';
 import { Observable, observable } from 'rxjs';
 import { EditDialogComponent } from '../dialog/student-dialog/edit-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import {NgxSpinnerService} from 'ngx-spinner';
 export interface DialogData {
   id: number;
   nombre: string;
@@ -33,6 +34,7 @@ export class StudentAbmComponent implements OnInit {
     'curso',
     'delete',
     'edit',
+    'desinscribir'
   ];
   students: Student[] = [];
   @ViewChild(MatTable) table!: MatTable<any>;
@@ -42,6 +44,7 @@ export class StudentAbmComponent implements OnInit {
   }
 
   constructor(
+    private spinner: NgxSpinnerService,
     private studentService: StudentsService,
     public dialog: MatDialog
   ) {
@@ -52,7 +55,11 @@ export class StudentAbmComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.spinner.show()
     this.loadStudents();
+    setTimeout(() => {
+      this.spinner.hide()
+    },1500)
   }
   getStudents$() {
     return this.studentService.getStudents$();

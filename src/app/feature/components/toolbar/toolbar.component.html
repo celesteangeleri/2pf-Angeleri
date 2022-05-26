@@ -1,4 +1,10 @@
 <div *ngIf="sesionActiva" class="toolbar">
+  <div class="bienvenido">
+    <h2>Bienvenido!</h2>
+    <h3>
+      "{{ sesionActiva.usuario.nombre }}"
+    </h3>
+  </div>
   <div>
     <button
       routerLink="cursos"
@@ -8,8 +14,8 @@
       Cursos
     </button>
   </div>
-  <div >
-    <button *ngIf="sesionActiva.activa && sesionActiva.usuario.rol == 'admin'"
+  <div>
+    <button
       routerLink="alumnos"
       routerLinkActive="router-link-active"
       mat-button
@@ -17,6 +23,7 @@
       Alumnos
     </button>
   </div>
+
   <div>
     <button
       routerLink="inscripciones"

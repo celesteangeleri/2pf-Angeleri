@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Usuario } from 'src/app/core/models/usuario';
+import { AuthService } from 'src/app/core/services/auth.service';
+
+
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
@@ -7,9 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
   sesionActiva!: any;
-  constructor() {
-    this.sesionActiva = JSON.parse(localStorage.getItem('sesion') || '{}');
+  usuarios: Usuario []= []
+
+  constructor(private authService: AuthService) {
+      this.authService.getUsuario().subscribe((data )=>{
+        this.usuarios = data
+       this.sesionActiva = JSON.parse(localStorage.getItem('sesion') || '{}');
+      })
+     
+  
   }
 
   ngOnInit(): void {}
+
 }

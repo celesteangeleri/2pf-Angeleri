@@ -14,3 +14,10 @@ button{
   font-family: 'Radio Canada', sans-serif;
   font-size: 1rem;
 }
+.bienvenido{
+  background-color: rgba(219, 158, 217, 0.498);
+  color: black;
+  text-align: center;
+  border-radius: 17%;
+  margin-top: 1rem;
+}

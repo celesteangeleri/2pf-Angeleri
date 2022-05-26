@@ -24,7 +24,9 @@ export class AuthService {
     );
   }
 
-
+getUsuario(){
+  return this.http.get<Usuario[]>(this.url);
+}
   establecerSesion(sesionActiva: boolean, usuario: Usuario) {
     this.sesion = {
        activa: sesionActiva,

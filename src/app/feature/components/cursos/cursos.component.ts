@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
@@ -9,6 +8,8 @@ import { cargarCursosRedux, cursosCargadosRedux } from 'src/app/state/actions/cu
 import { AppState } from 'src/app/state/app.state';
 import { AddCursoDialogComponent } from '../dialog/add-curso-dialog/add-curso-dialog.component';
 import { CursoDialogComponent } from '../dialog/curso-dialog/curso-dialog.component';
+import {NgxSpinnerService} from 'ngx-spinner';
+
 
 @Component({
   selector: 'app-cursos',
@@ -20,6 +21,7 @@ export class CursosComponent implements OnInit {
   sesionActiva!: any;
   cargando$! : Observable<boolean>
   constructor(
+    private spinner: NgxSpinnerService,
     private cursosService: CursosService, 
     public dialog: MatDialog,
     private store : Store<AppState>
@@ -31,11 +33,15 @@ export class CursosComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.spinner.show()
     this.store.dispatch(cargarCursosRedux())
     this.cursosService.obtenercursos$().subscribe((cursos)=> {
       this.store.dispatch(cursosCargadosRedux({cursos : cursos}))
     });
     this.cargando$ = this.store.select(state => state.cursos.cargando)
+    setTimeout(() => {
+      this.spinner.hide()
+    },1500)
   }
 
   cargarCursos() {

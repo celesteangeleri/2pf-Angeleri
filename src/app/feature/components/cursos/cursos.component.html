@@ -1,6 +1,7 @@
 <app-toolbar></app-toolbar>
+<ngx-spinner bdColor = "rgb(234,173,238)" size = "large" color = "#fefefe" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > cargando... </p></ngx-spinner>
 <button
-*ngIf="sesionActiva.activa && sesionActiva.usuario.rol == 'admin'"
+  *ngIf="sesionActiva.activa && sesionActiva.usuario.rol == 'admin'"
   mat-flat-button
   color="primary"
   class="agregarCurso"
@@ -14,7 +15,8 @@
     <mat-card-title-group>
       <mat-card-title class="titulo">{{ curso.nombre }}</mat-card-title>
       <mat-card-subtitle
-        >duracion: desde {{ curso.fechaInicio | date: 'dd/MM/YYYY'  }} , hasta {{curso.fechaFin | date: 'dd/MM/YYYY' }}</mat-card-subtitle
+        >duracion: desde {{ curso.fechaInicio | date: "dd/MM/YYYY" }} , hasta
+        {{ curso.fechaFin | date: "dd/MM/YYYY" }}</mat-card-subtitle
       >
     </mat-card-title-group>
     <mat-card-content>
@@ -24,24 +26,26 @@
       <p>precio: $ {{ curso.precio }}</p>
     </mat-card-content>
     <mat-card-content>
-      <p>profesor: {{curso.profesor.nombre}} {{curso.profesor.apellido}}</p>
-      <p>estudiantes: {{curso.students.length}}</p> 
+      <p>profesor: {{ curso.profesor.nombre }} {{ curso.profesor.apellido }}</p>
+      <p>estudiantes: {{ curso.students.length }}</p>
     </mat-card-content>
     <mat-card-actions align="end">
-      <button 
-      *ngIf="sesionActiva.activa && sesionActiva.usuario.rol == 'admin'"
-      mat-flat-button color="accent" (click)="abrirCursoDialog(curso)">
+      <button
+        *ngIf="sesionActiva.activa && sesionActiva.usuario.rol == 'admin'"
+        mat-flat-button
+        color="accent"
+        (click)="abrirCursoDialog(curso)"
+      >
         Modificar
       </button>
-      <button 
-      *ngIf="sesionActiva.activa && sesionActiva.usuario.rol == 'admin'"
-      mat-flat-button color="warn" (click)="deleteCurso(curso.id)">
+      <button
+        *ngIf="sesionActiva.activa && sesionActiva.usuario.rol == 'admin'"
+        mat-flat-button
+        color="warn"
+        (click)="deleteCurso(curso.id)"
+      >
         Eliminar
       </button>
-      <!-- <button 
-      mat-flat-button color="accent" (click)="deleteCurso(curso.id)">
-        desinscriberme
-      </button> -->
     </mat-card-actions>
   </mat-card>
   <br />

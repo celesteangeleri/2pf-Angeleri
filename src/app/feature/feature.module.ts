@@ -17,8 +17,8 @@ import { LoginComponent } from './components/autenticacion/login/login.component
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { AutenticacionModule } from './components/autenticacion/autenticacion.module';
 import { CursosRoutingModule } from './components/cursos/cursos-routing.module';
-
-
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ConversorDatosPipe } from '../core/pipes/conversor-datos.pipe';
 
 
 
@@ -32,6 +32,7 @@ import { CursosRoutingModule } from './components/cursos/cursos-routing.module';
     CursoDialogComponent,
     AddCursoDialogComponent,
     ToolbarComponent,
+  
     
   ],
   imports: [
@@ -43,7 +44,9 @@ import { CursosRoutingModule } from './components/cursos/cursos-routing.module';
     ReactiveFormsModule,
     RouterModule,
     HttpClientModule,
-    AutenticacionModule
+    AutenticacionModule,
+    NgxSpinnerModule,
+   
 
   ],
   exports:[
@@ -55,7 +58,10 @@ import { CursosRoutingModule } from './components/cursos/cursos-routing.module';
     LoginComponent,
     ToolbarComponent,
     AutenticacionModule,
-    CursosRoutingModule
+    CursosRoutingModule,
+    NgxSpinnerModule,
+    
+  
   ]
   // exports: [FlexLayoutModule, MaterialModule]
 })

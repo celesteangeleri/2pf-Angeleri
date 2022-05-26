@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material/material.module';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    NgxSpinnerModule,
   ],
   exports: [
-    MaterialModule
+    MaterialModule,
+    NgxSpinnerModule,
   ]
  
 })
