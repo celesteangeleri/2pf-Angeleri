@@ -36,7 +36,6 @@ export class CursoDialogComponent implements OnInit {
       precio: this.formEditCursos.value.precio,
     };
     this.cursosService.modificarCurso(curso).subscribe((curso) => {
-      console.log(curso);
     });
     this.dialogRef.close(curso);
   }

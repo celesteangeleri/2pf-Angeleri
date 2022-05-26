@@ -45,7 +45,6 @@ getUsuario(){
   registro(usuario: Usuario): Observable<Usuario[]> {
     return this.http.post<Usuario[]>(this.url, usuario).pipe(
       tap(() => {
-        console.log('usuario registrado');
         this.usuario.push(usuario);
       })
     )

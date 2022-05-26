@@ -54,18 +54,10 @@ export class AddCursoDialogComponent implements OnInit {
 ngOnInit(): void {
   
 }
-// agregarCurso() {
-//   const curso = this.formAddCurso.value;
-//   this.cursosService.agregarCurso(curso).subscribe(
-//     (curso) => {
-//       console.log(curso);
-//       alert('Curso agregado');
-//     });
-// }
+
 nuevoCurso(){
   const curso = this.formAddCurso.value;
   this.cursosService.agregarCurso(curso).subscribe((curso) => {
-    console.log(curso);
     alert('Curso agregado');
   })
   this.dialogRef.close();

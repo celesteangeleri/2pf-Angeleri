@@ -21,8 +21,6 @@ export class CursosService {
   }
 
   modificarCurso(curso: any): Observable<Curso> {
-    console.log(this.cursos,'servicio');
-    
     return this.http.put<Curso>(this.url + `/${curso.id}`, curso);
   }
   agregarCurso(curso: Curso): Observable<Curso> {

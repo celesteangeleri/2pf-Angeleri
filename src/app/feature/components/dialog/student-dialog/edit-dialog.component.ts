@@ -99,7 +99,6 @@ export class EditDialogComponent implements OnInit {
       curso: this.editStudentForm.value.curso,
     }
     this.studentService.editStudent(student).subscribe((student) => {
-      console.log(student);
     })
     this.dialogRef.close(student);
   }

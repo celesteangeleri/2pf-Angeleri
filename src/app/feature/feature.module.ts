@@ -18,9 +18,6 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { AutenticacionModule } from './components/autenticacion/autenticacion.module';
 import { CursosRoutingModule } from './components/cursos/cursos-routing.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { ConversorDatosPipe } from '../core/pipes/conversor-datos.pipe';
-
-
 
 @NgModule({
   declarations: [
@@ -32,8 +29,6 @@ import { ConversorDatosPipe } from '../core/pipes/conversor-datos.pipe';
     CursoDialogComponent,
     AddCursoDialogComponent,
     ToolbarComponent,
-  
-    
   ],
   imports: [
     CommonModule,
@@ -46,10 +41,8 @@ import { ConversorDatosPipe } from '../core/pipes/conversor-datos.pipe';
     HttpClientModule,
     AutenticacionModule,
     NgxSpinnerModule,
-   
-
   ],
-  exports:[
+  exports: [
     RouterModule,
     CursosComponent,
     StudentAbmComponent,
@@ -60,9 +53,7 @@ import { ConversorDatosPipe } from '../core/pipes/conversor-datos.pipe';
     AutenticacionModule,
     CursosRoutingModule,
     NgxSpinnerModule,
-    
-  
-  ]
+  ],
   // exports: [FlexLayoutModule, MaterialModule]
 })
 export class FeatureModule {}
